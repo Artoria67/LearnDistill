@@ -24,7 +24,11 @@
 
 也可把 `skills/material-refinement/` 整个目录复制到宿主的个人 skills 目录，例如 `$CODEX_HOME/skills/`（未设置时通常是 `~/.codex/skills/`）。不要覆盖已存在的同名 skill；先检查差异。该目录包含运行依赖声明和资源，不能只复制 `SKILL.md`。
 
-插件入口为 `.codex-plugin/plugin.json`，采用 OpenAI 支持的 Codex 兼容清单，声明 `./skills/` 和本地执行需求。本次只在仓库开发；市场注册、插件目录安装、公开发布和 GitHub 推送另行处理。
+插件入口为 `.codex-plugin/plugin.json`，采用 OpenAI 支持的 Codex 兼容清单，声明 `./skills/` 和本地执行需求。仓库内 `.agents/plugins/marketplace.json` 提供本地开发目录，指向当前仓库，不包含机器专属路径。
+
+在支持本地插件目录的 Codex 桌面客户端中，打开本仓库后重启客户端，在插件目录选择“教材与资料精炼 本地开发”，安装本插件，再在新聊天中验证自动匹配。宿主版本与策略可能影响本地目录是否显示；无法显示时仍可用上面的显式路径方式运行 skill。仓库内存在文件不等于插件已安装或启用。
+
+本次开发不会更改个人全局插件配置，不执行公开发布或 GitHub 推送。
 
 ## 运行转换工具
 
@@ -48,7 +52,7 @@ node skills/material-refinement/scripts/render_pdf.mjs "outputs/calculus-section
 
 支持标准 Markdown 标题、列表、引用、代码块、表格，本地 PNG/JPEG/WebP/GIF/SVG 图片，以及 KaTeX 支持的 LaTeX 公式。公式使用 `$...$`、`$$...$$`、`\(...\)` 或 `\[...\]`。不支持的 LaTeX 需要改写为受支持表达式或生成清晰图片，不能静默丢弃。
 
-图片放在 Markdown 旁的 `assets/` 内，并用相对路径引用。远程图片先由 agent 获准读取并保存；Mermaid 等图表先导出 SVG/PNG。转换器拒绝缺失图片、越界图片路径、无效公式和明显横向溢出。HTML 禁止执行脚本，预览内嵌字体和图片；素材不会发到在线转换服务。
+图片放在 Markdown 旁的 `assets/` 内，并用相对路径引用，图片说明会显示为图注。远程图片先由 agent 获准读取并保存；Mermaid 等图表先导出 SVG/PNG。转换器拒绝缺失图片、越界图片路径、无效公式和明显横向溢出。HTML 禁止执行脚本，预览内嵌字体和图片；素材不会发到在线转换服务。
 
 交付 `.md`、`.pdf` 和可用的 `.html`；Markdown 使用图片时还需交付素材，或提供保持目录结构的 ZIP。PDF 生成后仍需要 agent 做内容核对和逐页视觉检查。
 
@@ -58,7 +62,10 @@ node skills/material-refinement/scripts/render_pdf.mjs "outputs/calculus-section
 npm run setup
 npm run validate
 npm test
+npm run demo
 ```
+
+`npm run demo` 从仓库自编样例生成 `outputs/demo/` 下的 Markdown、素材、HTML 和 PDF，方便检查交付效果。该目录不会被 Git 提交。
 
 测试使用公开的自编示例，检查中文、数学公式、表格、图片的真实 PDF 转换以及缺失素材/错误公式等失败分支。自动测试不能证明提炼内容适合每个学习者；以下行为还需要在实际使用中核对：
 
