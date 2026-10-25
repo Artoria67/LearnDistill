@@ -1,0 +1,48 @@
+# Dependencies and development caches
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.cache/
+.pytest_cache/
+coverage/
+*.log
+
+# User materials, generated study notes and test output
+/input/
+/inputs/
+/private/
+/local/
+/output/
+/outputs/
+/tmp/
+/temp/
+/test-results/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+credentials.*.json
+secrets.json
+secrets.*.json
+.ssh/
+.npmrc
+.pypirc
+
+# Editor and operating-system files
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+Desktop.ini
+~$*
+*.tmp
+*.bak
