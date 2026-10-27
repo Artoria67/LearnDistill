@@ -1,10 +1,10 @@
 {
-  "name": "textbook-materials-refinement-dev",
+  "name": "learn-distill-dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "setup": "npm ci --ignore-scripts && npm ci --prefix skills/material-refinement --ignore-scripts",
-    "check": "node skills/material-refinement/scripts/check_environment.mjs",
+    "setup": "npm ci --ignore-scripts && npm ci --prefix skills/learn-distill --ignore-scripts",
+    "check": "node skills/learn-distill/scripts/check_environment.mjs",
     "test": "node --test tests/*.test.mjs",
     "validate": "node scripts/validate.mjs",
     "demo": "node scripts/demo.mjs"

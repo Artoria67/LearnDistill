@@ -1,17 +1,23 @@
 ---
-name: material-refinement
-description: Refine user-supplied textbooks, exercise solutions, lecture notes, images, documents, PDFs or links into concise learning materials, with Markdown source and a verified PDF. Use when the user asks to summarize study materials, organize knowledge points, condense chapters or explain supplied solutions for efficient learning. Do not use for unrelated summaries, merely answering one question, or developing this plugin itself.
+name: learn-distill
+description: Refine user-supplied textbooks, exercise solutions, lecture notes, images, documents, PDFs or links into concise learning materials, with Markdown source and a verified PDF. Use when the user asks to summarize study materials, organize knowledge points, condense chapters or explain supplied solutions for efficient learning. Do not use for unrelated summaries, merely answering one question, or developing this skill itself.
 ---
 
-# 教材与资料精炼
+# LearnDistill · 学萃
 
 把用户提供的学习材料整理为适合其可用学习时间和基础的资料，先写 Markdown，再由同一份 Markdown 生成 PDF。Markdown 源文件和经过检查的 PDF 都是必需交付物；HTML/对话预览可用时一并提供。用户当前的具体要求优先于默认规则。
+
+## 宿主适配
+
+本 skill 按 Agent Skills 格式组织，使用当前宿主提供的文件、命令、资料读取和图像查看工具；不要求特定厂商的工具名、API、MCP 服务或其他 skill。随附转换器需要 Node.js 20+ 与 Chromium、Edge 或 Chrome。下文 `<skill-dir>` 指当前 `SKILL.md` 所在目录，执行脚本时使用其实际路径，不假定工作目录是仓库根目录。
+
+安装时保留整个目录中的脚本、参考文件、样式和依赖声明。`agents/openai.yaml` 与仓库外层的 Codex 插件清单只为相应宿主提供元数据，通用工作流不依赖它们。检查当前能力后再处理资料；缺少命令执行能力就说明无法完成 PDF 交付，不声称已执行检查或转换。文件交付与预览使用宿主支持的链接、附件或预览方式。
 
 ## 1. 确认任务与学习时长
 
 提取用户要求中的范围、学习/阅读/复习时长、详细程度、语言、已有基础和输出要求。已经给出的信息不要重复询问。
 
-**如果用户没有提供可用学习时长，务必先询问，得到答复后再编写正式学习资料。** 可以先检查材料可读性和运行环境。询问示例：“你打算用多长时间学完这份资料？主要用于初学、复习还是考前查漏？”基础、范围或深度存在会实质影响结果的歧义时，合并必要问题；其余采用合理假设并在成品开头简短标明。不要因为正在开发本插件而索要学习时长。
+**如果用户没有提供可用学习时长，务必先询问，得到答复后再编写正式学习资料。** 可以先检查材料可读性和运行环境。询问示例：“你打算用多长时间学完这份资料？主要用于初学、复习还是考前查漏？”基础、范围或深度存在会实质影响结果的歧义时，合并必要问题；其余采用合理假设并在成品开头简短标明。不要因为正在开发本 skill 而索要学习时长。
 
 时长是学习预算，包括阅读、理解和练习，不是按字数保证学会。围绕预算安排重点，保留关键概念的条件和适量检验题。若范围明显超过预算，先说明取舍，必要时让用户选择缩小范围或增加时间。
 
@@ -25,7 +31,7 @@ node <skill-dir>/scripts/check_environment.mjs
 
 检测编辑器/预览能力和 PDF 转换能力时分别判断。VS Code 自带 Markdown 预览；已有一个主流 Markdown 编辑/预览方案即可，不要求同时安装其他编辑器或无必要插件。
 
-缺少编辑/预览方案，或确实缺少必要的转换依赖时，说明具体缺项、推荐最小安装方案并询问用户是否安装。**询问不等于获准，等待答复后才能安装。** 用户拒绝安装编辑器/插件，仍继续写 Markdown 并用已有能力生成 PDF，交付源文件和 PDF。不要反复劝装，也不要把拒绝编辑器解释为拒绝所有处理。
+缺少编辑/预览方案，或确实缺少必要的转换依赖时，说明具体缺项并推荐最小安装方案。用户尚未授权安装时，询问并等待答复；已有授权则在授权范围内继续，不重复确认。用户拒绝安装编辑器/插件，仍继续写 Markdown 并用已有能力生成 PDF，交付源文件和 PDF。不要反复劝装，也不要把拒绝编辑器解释为拒绝所有处理。
 
 转换依赖缺失且用户不允许安装时，使用当前环境可用的本地 PDF 生成方法，尽量保持同一 Markdown 的内容、公式和图表。任何方法都无法生成有效 PDF，就保留 Markdown、说明具体阻塞并请求必要帮助，**不得宣布任务完成**。编辑器安装和系统权限都不是本 skill 可自行授予的权限。
 

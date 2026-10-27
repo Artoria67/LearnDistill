@@ -38,7 +38,7 @@ export async function smokeTest(report) {
     return report;
   }
   const temporaryRoot = path.resolve(os.tmpdir());
-  const directory = await fs.mkdtemp(path.join(temporaryRoot, 'material-refinement-check-'));
+  const directory = await fs.mkdtemp(path.join(temporaryRoot, 'learn-distill-check-'));
   try {
     const { renderMarkdownFile } = await import('./render_pdf.mjs');
     const input = path.join(directory, 'check.md');
@@ -50,7 +50,7 @@ export async function smokeTest(report) {
   } finally {
     // Only remove the fresh, known scratch directory created by this invocation.
     const relative = path.relative(temporaryRoot, path.resolve(directory));
-    if (!relative.startsWith('material-refinement-check-') || relative.includes(path.sep)) {
+    if (!relative.startsWith('learn-distill-check-') || relative.includes(path.sep)) {
       throw new Error('Unexpected scratch path; cleanup refused.');
     }
     await fs.rm(directory, { recursive: true, force: true });

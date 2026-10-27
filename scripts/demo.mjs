@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderMarkdownFile } from '../skills/material-refinement/scripts/render_pdf.mjs';
+import { renderMarkdownFile } from '../skills/learn-distill/scripts/render_pdf.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const destination = path.join(root, 'outputs', 'demo');

@@ -7,7 +7,7 @@ import { createRequire } from 'node:module';
 import { parse } from 'yaml';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const skillDirectory = path.join(root, 'skills', 'material-refinement');
+const skillDirectory = path.join(root, 'skills', 'learn-distill');
 const require = createRequire(path.join(skillDirectory, 'package.json'));
 const markdown = require('markdown-it')({ html: false });
 const read = file => fs.readFileSync(file, 'utf8');
@@ -41,6 +41,8 @@ assert.ok(ui.interface.default_prompt.includes(`$${metadata.name}`));
 assert.ok([...ui.interface.short_description].length >= 25 && [...ui.interface.short_description].length <= 64);
 
 const references = fs.readdirSync(path.join(skillDirectory, 'references')).filter(file => file.endsWith('.md'));
+const publicDocuments = ['README.md', 'README.zh-CN.md', 'CONTRIBUTING.md', 'CONTRIBUTING.zh-CN.md',
+  'docs/github-setup.md', 'docs/github-setup.zh-CN.md'].map(file => path.join(root, file));
 function destinations(tokens) {
   return tokens.flatMap(token => [
     ...(token.type === 'link_open' ? [token.attrGet('href')] : []),
@@ -48,7 +50,7 @@ function destinations(tokens) {
     ...(token.children ? destinations(token.children) : []),
   ]);
 }
-for (const file of [path.join(skillDirectory, 'SKILL.md'), ...references.map(file => path.join(skillDirectory, 'references', file))]) {
+for (const file of [...publicDocuments, path.join(skillDirectory, 'SKILL.md'), ...references.map(file => path.join(skillDirectory, 'references', file))]) {
   const body = read(file).replace(/^---\r?\n[\s\S]+?\r?\n---(?:\r?\n|$)/, '');
   for (const target of destinations(markdown.parse(body, {}))) {
     if (/^(?:https?:|#)/.test(target)) continue;
@@ -79,4 +81,4 @@ for (const script of scripts) {
   const result = spawnSync(process.execPath, ['--check', script], { encoding: 'utf8', windowsHide: true });
   assert.equal(result.status, 0, result.stderr || result.error?.message || `Syntax error: ${script}`);
 }
-console.log(`Validated plugin manifest, local marketplace, skill metadata, ${references.length} references, dependency locks and ${scripts.length} scripts.`);
+console.log(`Validated plugin manifest, local marketplace, skill metadata, ${publicDocuments.length} public documents, ${references.length} references, dependency locks and ${scripts.length} scripts.`);

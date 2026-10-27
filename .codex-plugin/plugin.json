@@ -1,11 +1,11 @@
 {
-  "name": "textbook-materials-refinement",
+  "name": "learn-distill",
   "version": "0.1.0",
   "description": "Refine supplied learning materials into source-traceable Markdown study notes and a verified PDF, scoped to the learner's available study time.",
   "skills": "./skills/",
   "requires_local_executor": true,
   "interface": {
-    "displayName": "教材与资料精炼",
+    "displayName": "LearnDistill · 学萃",
     "shortDescription": "按学习时间提炼教材、知识点与题解，交付 Markdown 和 PDF"
   }
 }

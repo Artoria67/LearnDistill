@@ -1,6 +1,0 @@
-interface:
-  display_name: "教材与资料精炼"
-  short_description: "按可用学习时间提炼教材、知识点与题解，交付可核对的 Markdown 和 PDF"
-  default_prompt: "使用 $material-refinement 整理我提供的学习资料，先确认学习时长，再交付 Markdown 源文件、可用预览和 PDF。"
-policy:
-  allow_implicit_invocation: true

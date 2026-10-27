@@ -1,9 +1,9 @@
 {
-  "name": "material-refinement-tools",
+  "name": "learn-distill-tools",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Offline Markdown study-note preview and PDF tools for the material-refinement skill.",
+  "description": "Offline Markdown study-note preview and PDF tools for the learn-distill skill.",
   "engines": { "node": ">=20" },
   "scripts": {
     "check": "node scripts/check_environment.mjs",

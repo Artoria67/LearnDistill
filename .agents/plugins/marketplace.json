@@ -1,9 +1,9 @@
 {
-  "name": "textbook-materials-local",
-  "interface": { "displayName": "教材与资料精炼 本地开发" },
+  "name": "learn-distill-local",
+  "interface": { "displayName": "LearnDistill · 学萃 本地开发" },
   "plugins": [
     {
-      "name": "textbook-materials-refinement",
+      "name": "learn-distill",
       "source": { "source": "local", "path": "./" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Productivity"

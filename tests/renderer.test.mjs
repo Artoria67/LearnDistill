@@ -7,11 +7,11 @@ import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { PDFDocument } from 'pdf-lib';
-import { buildHtml, isWithin, parseArguments, renderMarkdownFile } from '../skills/material-refinement/scripts/render_pdf.mjs';
-import { detectEditors, findBrowser } from '../skills/material-refinement/scripts/runtime.mjs';
+import { buildHtml, isWithin, parseArguments, renderMarkdownFile } from '../skills/learn-distill/scripts/render_pdf.mjs';
+import { detectEditors, findBrowser } from '../skills/learn-distill/scripts/runtime.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const skill = path.join(root, 'skills', 'material-refinement');
+const skill = path.join(root, 'skills', 'learn-distill');
 const require = createRequire(path.join(skill, 'package.json'));
 const { chromium } = require('playwright-core');
 const browser = findBrowser({ chromiumExecutable: chromium.executablePath() });
