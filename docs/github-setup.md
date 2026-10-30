@@ -2,16 +2,16 @@
 
 **English** | [简体中文](github-setup.zh-CN.md)
 
-For LearnDistill · 学萃. GitHub's official instructions were checked on **2026-10-27**. Availability and labels can vary with your account plan and GitHub updates. These are recommended settings, not changes already applied to the remote repository.
+For LearnDistill · 学萃. General settings guidance was checked on **2026-10-27**; licensing and repository visibility were checked again on **2026-10-30**. Availability and labels can vary with your account plan and GitHub updates. These are recommended settings, not changes already applied to the remote repository.
 
 ## 1. Prepare a releasable version
 
-Verified snapshot: the remote repository is `Artoria67/LearnDistill`, its visibility is **Private**, and its default branch is `main`. The local project has no root `LICENSE` or GitHub Actions workflow yet. Local changes must be committed and pushed before they appear on GitHub.
+Repository: [`Artoria67/LearnDistill`](https://github.com/Artoria67/LearnDistill), default branch `main`. Check the repository page for its current visibility. This checkout includes an MIT license for original project content, a copy in the installable skill, and separate third-party notices. There is no GitHub Actions workflow yet. Local changes must be committed and pushed before they appear on GitHub.
 
 Work in this order:
 
-1. Choose a license for the code and skill instructions, then add a root `LICENSE`. If the goal is broad reuse, modification and redistribution, consider [MIT](https://choosealicense.com/licenses/mit/). This is a recommendation; the project has not adopted it.
-2. Preserve third-party attribution and licensing. The FNC exercise PDF includes its own source and CC BY-SA 4.0 notice; a license chosen for this project's code does not replace those terms.
+1. Review the [MIT License](../LICENSE) and [license scope](../THIRD_PARTY_NOTICES.md). MIT permits commercial reuse and closed-source derivatives while requiring preservation of copyright and license notices. Keep the license copy in `skills/learn-distill/` when distributing the standalone skill.
+2. Preserve third-party attribution and licensing. The FNC PDFs have separate [source and license notices](../examples/fnc-julia-chapter-2/README.md). The upstream CC BY-SA 4.0 grant covers exercises, not the entire textbook; the guide retains SIAM's textbook copyright notice. The project's MIT grant does not replace those terms.
 3. Check both languages' installation instructions and example links, then review the commits and history you intend to publish. `.gitignore` does not remove files already committed.
 4. Run the checks below, review the changes, then commit and push to the intended release branch.
 
@@ -25,7 +25,7 @@ git status --short
 
 PDF tests need a Chromium-based browser; Chinese examples also need Chinese fonts. Documenting an installation path is different from testing discovery and invocation in that client. Keep release claims specific to what was actually verified.
 
-Public visibility and open-source licensing are separate decisions. The maintainer must explicitly select a license. See [GitHub's licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
+Public visibility and open-source licensing are separate decisions. Adding a license does not change repository visibility or establish rights to third-party material. See [GitHub's licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
 
 ## 2. Name, description and About
 

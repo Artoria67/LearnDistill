@@ -108,6 +108,8 @@ node scripts/check_environment.mjs --smoke-test
 | [第二章学习讲义（12 页）](examples/fnc-julia-chapter-2/fnc-ch2-notes.pdf) | 覆盖 2.1–2.10，含知识点、Julia 示例、易错点和自检，按 120 分钟学习＋60 分钟练习安排。 |
 | [第二章独立习题册（19 页）](examples/fnc-julia-chapter-2/fnc-ch2-exercises.pdf) | 共 61 道大题，保留英文原题与分问，附中文提示，区分手写、编程与混合题。 |
 
+上述 PDF 有独立的[来源与许可说明](examples/fnc-julia-chapter-2/README.md)。习题及其改编采用 CC BY-SA 4.0；讲义新增中文内容采用 CC BY-SA 4.0，原教材的 SIAM 版权保持不变。
+
 ### 整理题解或考前复习
 
 > 使用 learn-distill，把我上传的第 3—8 题及所给题解整理成 40 分钟的复习资料。保留题干和题号，说明关键思路、步骤、结果与易错点。发现原解有错误时核算并指出，交付 Markdown、预览和 PDF。
@@ -132,3 +134,9 @@ npm run demo
 ```
 
 `npm run demo` 会从上面的示例生成 `outputs/demo/` 下的 Markdown、素材、HTML 和 PDF。
+
+## 许可证
+
+项目原创代码、skill 说明、文档和自编微积分示例采用 [MIT 许可证](LICENSE)，另有声明的内容除外。MIT 允许商用、修改和再分发，也允许闭源衍生使用，条件是保留版权与许可声明。可独立安装的 skill 文件夹也包含许可证副本。
+
+FNC PDF 和 npm 依赖保留各自条款，见[第三方声明](THIRD_PARTY_NOTICES.md)。安装本 skill 不会改变用户输入教材的权利，也不会让生成的学习资料自动采用 MIT。

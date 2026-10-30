@@ -110,6 +110,8 @@ These Chinese-language PDFs were produced in a user test of this skill on Chapte
 | [Chapter 2 study guide, 12 pages](examples/fnc-julia-chapter-2/fnc-ch2-notes.pdf) | Sections 2.1–2.10, concepts, Julia examples, common mistakes and self-checks, with 120 minutes of study plus 60 minutes of practice. |
 | [Chapter 2 exercise booklet, 19 pages](examples/fnc-julia-chapter-2/fnc-ch2-exercises.pdf) | 61 exercises with original English statements and subparts, Chinese guidance, and handwritten, programming or mixed-task labels. |
 
+These PDFs have separate [source and license notices](examples/fnc-julia-chapter-2/README.md). The exercises and their adaptations use CC BY-SA 4.0; the guide's added Chinese content uses CC BY-SA 4.0 while the textbook's SIAM copyright remains unchanged.
+
 ### Organize solutions or revision notes
 
 > Use learn-distill to turn exercises 3–8 and their supplied solutions into 40 minutes of revision material. Preserve the statements and numbering. Explain the key approach, steps, results and common mistakes. Check and flag errors in the supplied solutions. Deliver Markdown, a preview and a PDF.
@@ -134,3 +136,9 @@ npm run demo
 ```
 
 `npm run demo` generates Markdown, assets, HTML and PDF in `outputs/demo/` from the example.
+
+## License
+
+Original project code, skill instructions, documentation and the authored calculus sample use the [MIT License](LICENSE), except where otherwise stated. MIT permits commercial use, modification and redistribution, including closed-source derivatives, provided the copyright and license notices are retained. A copy of the license is included in the installable skill folder.
+
+FNC PDFs and npm dependencies retain their separate terms; see [third-party notices](THIRD_PARTY_NOTICES.md). Installing this skill does not change the rights to user-supplied textbooks or automatically license generated study materials under MIT.

@@ -1,6 +1,7 @@
 {
   "name": "learn-distill-dev",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "setup": "npm ci --ignore-scripts && npm ci --prefix skills/learn-distill --ignore-scripts",

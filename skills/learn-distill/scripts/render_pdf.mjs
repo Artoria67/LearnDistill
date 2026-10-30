@@ -61,6 +61,7 @@ function embeddedStyles() {
   if (cachedStyles) return cachedStyles;
   const katexDirectory = path.dirname(require.resolve('katex'));
   const mathCss = fs.readFileSync(path.join(katexDirectory, 'katex.min.css'), 'utf8');
+  const mathLicense = fs.readFileSync(path.join(katexDirectory, '..', 'LICENSE'), 'utf8').replaceAll('*/', '* /');
   const embedded = mathCss.replace(/url\(([^)]+)\)/g, (_match, rawUrl) => {
     const font = path.resolve(katexDirectory, rawUrl.replace(/^["']|["']$/g, ''));
     if (!isWithin(katexDirectory, font)) throw new Error('Unexpected KaTeX font path.');
@@ -69,7 +70,7 @@ function embeddedStyles() {
     if (!mime) throw new Error(`Unsupported font format: ${extension}`);
     return `url(data:${mime};base64,${fs.readFileSync(font).toString('base64')})`;
   });
-  cachedStyles = `${embedded}\n${fs.readFileSync(path.join(skillRoot, 'assets', 'print.css'), 'utf8')}`;
+  cachedStyles = `/* KaTeX license for embedded CSS and fonts:\n${mathLicense}\n*/\n${embedded}\n${fs.readFileSync(path.join(skillRoot, 'assets', 'print.css'), 'utf8')}`;
   return cachedStyles;
 }
 

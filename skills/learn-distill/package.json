@@ -1,6 +1,7 @@
 {
   "name": "learn-distill-tools",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "description": "Offline Markdown study-note preview and PDF tools for the learn-distill skill.",

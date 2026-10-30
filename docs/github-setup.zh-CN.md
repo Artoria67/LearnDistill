@@ -2,16 +2,16 @@
 
 [English](github-setup.md) | **简体中文**
 
-适用于 LearnDistill · 学萃。设置入口依据 GitHub 官方文档，于 **2026-10-27** 核对；界面可能随账号计划和 GitHub 更新变化。下文是建议配置，不代表已替你修改远程仓库。
+适用于 LearnDistill · 学萃。一般设置说明于 **2026-10-27** 核对，许可与仓库可见性于 **2026-10-30** 再次核对；界面可能随账号计划和 GitHub 更新变化。下文是建议配置，不代表已替你修改远程仓库。
 
 ## 1. 先完成可发布的版本
 
-当前已核对：远程仓库为 `Artoria67/LearnDistill`，可见性为 **Private**，默认分支为 `main`。本地尚无项目根目录 `LICENSE` 和 GitHub Actions 工作流；本地修改需要提交并推送，才会出现在 GitHub 上。
+仓库为 [`Artoria67/LearnDistill`](https://github.com/Artoria67/LearnDistill)，默认分支为 `main`；当前可见性以仓库页面为准。当前工作副本已包含项目原创内容的 MIT 许可证、可独立安装的 skill 内的许可证副本，以及第三方声明；尚无 GitHub Actions 工作流。本地修改需要提交并推送，才会出现在 GitHub 上。
 
 按此顺序推进：
 
-1. 确定代码和 skill 说明的许可证，再添加根目录 `LICENSE`。如果目标是允许他人广泛使用、修改和再分发，可优先了解 [MIT](https://choosealicense.com/licenses/mit/)。这只是建议，尚未为项目采用该协议。
-2. 保留第三方示例自身的归属和授权。FNC 习题册内已有来源及 CC BY-SA 4.0 说明，不能把它直接改称为整个项目代码所选的许可证。
+1. 审阅 [MIT 许可证](../LICENSE)与[许可范围](../THIRD_PARTY_NOTICES.md)。MIT 允许商用和闭源衍生使用，同时要求保留版权与许可声明。分发独立 skill 时保留 `skills/learn-distill/` 内的许可证副本。
+2. 保留第三方示例自身的归属和授权。FNC PDF 有独立的[来源与许可说明](../examples/fnc-julia-chapter-2/README.md)：上游 CC BY-SA 4.0 授权适用于习题，不是整本教材；讲义保留 SIAM 的教材版权声明。本项目的 MIT 授权不会替代这些条款。
 3. 核对中英文安装步骤与示例链接，再检查准备公开的提交及历史。`.gitignore` 不会移除已经提交的文件。
 4. 运行下面的检查，审阅改动，提交并推送到实际要发布的分支。
 
@@ -25,7 +25,7 @@ git status --short
 
 本项目的 PDF 测试需要可用的 Chromium 系浏览器，中文示例还需要中文字体。配置允许使用不等于完成了客户端兼容性实测；发布说明应区分这两件事。
 
-公开可见和开源授权是不同事项。许可证应由项目维护者明确选择。参考 [GitHub 许可证说明](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)。
+公开可见和开源授权是不同事项。添加许可证不会改变仓库可见性，也不会自动取得第三方资料的权利。参考 [GitHub 许可证说明](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)。
 
 ## 2. 名称、描述与 About
 

@@ -20,6 +20,8 @@ For content problems, identify the original section or exercise and the incorrec
 
 Retain attribution and applicable license notices for third-party examples. Adding an example does not change its original licensing terms.
 
+Unless explicitly stated otherwise, contributions to original project code, skill instructions and documentation are provided under the [MIT License](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md) for exceptions. Submit only material you have the right to share under its stated terms.
+
 ## Validate changes
 
 From the repository root:
